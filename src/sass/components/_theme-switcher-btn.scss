@@ -1,0 +1,16 @@
+.theme-switch {
+    width: 19.988px;
+    color: #7E88C3;
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+
+    span {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+
+
+}

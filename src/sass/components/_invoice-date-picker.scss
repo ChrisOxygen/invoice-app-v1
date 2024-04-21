@@ -1,0 +1,184 @@
+.date-input {
+    width: 100%;
+    position: relative;
+
+    &__display {
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid var(--form-input-border-color);
+        background: var(--invoice-item-bg-color);
+        padding: 17px 20px;
+        cursor: pointer;
+
+        &:hover,
+        &--focused {
+            border: 1px solid var(--01, #7C5DFA);
+        }
+
+        & input[type=checkbox] {
+            display: none;
+
+            &:checked~#selected .arrow-icon {
+
+                color: var(--01, #7C5DFA);
+            }
+        }
+
+        & #selected {
+            color: var(--main-text-color);
+            font-family: "League Spartan";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 15px;
+            /* 100% */
+            letter-spacing: -0.25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+
+            cursor: pointer;
+
+            .arrow-icon {
+                color: var(--07, #7E88C3);
+                display: grid;
+                place-content: center;
+                font-size: 19px;
+                transition: all 0.3s ease-in-out;
+
+            }
+        }
+
+    }
+
+    &__calender-box {
+        border-radius: 8px;
+        background: #FFF;
+        box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
+
+        width: 100%;
+
+        position: absolute;
+        top: 113%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 8px;
+        background: var(--dropdown-bg-color);
+        box-shadow: var(--dropdown-box-shadow);
+
+        z-index: 2;
+
+        padding: 26px 20px;
+
+        .rdp-tbody {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+        }
+
+        .months {
+
+            // background-color: red;
+        }
+
+        .month {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .caption {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .caption_label {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+
+            color: var(--main-text-color);
+            text-align: center;
+            font-family: "League Spartan";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 15px;
+            /* 100% */
+            letter-spacing: -0.25px;
+        }
+
+        .nav {
+            grid-column: 1 / 5;
+            grid-row: 1 / 2;
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+
+            button {
+                color: var(--01, #7C5DFA);
+
+                * {
+
+                    width: 15px;
+                }
+            }
+        }
+
+        .nav_button_previous {}
+
+        .nav_button_next {}
+
+        .table {
+            width: 100%;
+        }
+
+        .head_row {
+            display: none;
+        }
+
+        .head_cell {}
+
+        .row {
+            display: flex;
+            height: 15px;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .cell {
+            width: 16px;
+            height: 15px;
+            display: grid;
+            place-items: center;
+        }
+
+        .day {
+            color: var(--main-text-color);
+            font-family: "League Spartan";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 15px;
+            /* 100% */
+            letter-spacing: -0.25px;
+
+            &:hover {
+                color: var(--08, #7C5DFA);
+
+            }
+        }
+
+        .day_outside {
+            opacity: 0.0814;
+        }
+
+    }
+}

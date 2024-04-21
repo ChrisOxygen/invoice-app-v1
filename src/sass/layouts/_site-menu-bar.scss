@@ -1,0 +1,131 @@
+.menu-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px 20px 20px 0px;
+    background: var(--menu-bg-color);
+
+    width: 100%;
+
+    overflow: hidden;
+
+    z-index: 200;
+
+    @media only screen and (max-width: 949px) {
+        border-radius: 0;
+        flex-direction: row;
+    }
+}
+
+.logo-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 103px;
+    height: 103px;
+    flex-shrink: 0;
+    border-radius: 0px 20px 20px 0px;
+    background: var(--02, #7C5DFA);
+
+    overflow: hidden;
+    margin-bottom: auto;
+
+    @media only screen and (max-width: 949px) {
+        margin-right: auto;
+        width: 80px;
+        height: 80px;
+    }
+
+    @media only screen and (max-width: 670px) {
+        width: 72px;
+        height: 72px;
+
+
+
+    }
+
+    &::after {
+        width: 103px;
+        height: 103px;
+        flex-shrink: 0;
+        border-radius: 20px 0px 0px 20px;
+        background: var(--02, #9277FF);
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 0;
+
+        @media only screen and (max-width: 949px) {
+            width: 80px;
+            height: 80px;
+
+
+
+        }
+
+        @media only screen and (max-width: 670px) {
+            width: 72px;
+            height: 72px;
+
+        }
+
+    }
+
+    img {
+        width: 40px;
+        z-index: 1;
+
+        @media only screen and (max-width: 949px) {
+            width: 31px;
+
+        }
+    }
+}
+
+.user-avater {
+    width: 103px;
+    height: 103px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 1px solid #494E6E;
+    margin-top: 32px;
+
+    @media only screen and (max-width: 949px) {
+        margin-top: 0;
+        border-top: none;
+        border-left: 1px solid #494E6E;
+        margin-left: 32px;
+
+
+    }
+
+    @media only screen and (max-width: 949px) {
+        width: 80px;
+        height: 80px;
+
+
+
+    }
+
+    @media only screen and (max-width: 670px) {
+        width: 72px;
+        height: 72px;
+
+
+
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        object-fit: cover;
+
+        @media only screen and (max-width: 949px) {}
+    }
+}

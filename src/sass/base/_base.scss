@@ -1,0 +1,170 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+}
+
+:root {
+
+  --main-bg-color: #F8F8FB;
+  --pop-up-bg-color: #fff;
+  --menu-bg-color: #373B53;
+  --invoice-item-bg-color: #fff;
+  --main-text-color: #0C0E16;
+  --secondary-text-color-1: #888EB0;
+  --secondary-text-color-2: #858BB2;
+  --status-draft: #373B53;
+  --dropdown-bg-color: #fff;
+  --checkbox-bg-color: #DFE3FA;
+  --dropdown-box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
+  --edit-btn-color: #7E88C3;
+  --edit-btn-bg-color: #F9FAFE;
+  --order-bottom-bg-color: #373B53;
+
+  --edit-btn-bg-hover-color: #DFE3FA;
+
+  --form-input-border-color: #DFE3FA;
+
+  --save-draft-bg-hover-color: #0C0E16;
+
+
+}
+
+.dark-theme {
+  --main-bg-color: #141625;
+  --pop-up-bg-color: #141625;
+  --menu-bg-color: #1E2139;
+  --invoice-item-bg-color: #1E2139;
+  --main-text-color: #fff;
+  --secondary-text-color-1: #DFE3FA;
+  --secondary-text-color-2: #fff;
+  --status-draft: #DFE3FA;
+  --dropdown-bg-color: #252945;
+  --checkbox-bg-color: #1E2139;
+  --dropdown-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.25);
+  --edit-btn-color: #DFE3FA;
+  --edit-btn-bg-color: #252945;
+  --order-bottom-bg-color: #0C0E16;
+
+
+  --edit-btn-bg-hover-color: #ffffff00;
+  --form-input-border-color: #252945;
+
+  --save-draft-bg-hover-color: #1E2139;
+
+
+
+
+
+
+  & * {
+    transition: background 0.2s ease-in-out;
+  }
+}
+
+
+body {
+
+  font-family: "League Spartan", sans-serif;
+  height: 100%;
+
+  & * {
+    transition: background 0.2s ease-in-out;
+  }
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button,
+a {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+/* Parent selector, finally 😃 */
+button:has(svg) {
+  line-height: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+menu {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  // hyphens: auto;
+}
+
+.wrapper {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--main-bg-color);
+
+  overflow: hidden;
+  position: relative;
+
+
+
+  display: grid;
+  grid-template-columns: 103px 1fr;
+
+
+  @media only screen and (max-width: 949px) {
+    grid-template-columns: auto;
+    grid-template-rows: 103px 1fr;
+  }
+
+  @media only screen and (max-width: 949px) {
+    grid-template-rows: 80px 1fr;
+
+
+
+
+  }
+
+  @media only screen and (max-width: 670px) {
+    grid-template-rows: 72px 1fr;
+
+
+
+
+  }
+
+
+}
+
+.box-container {
+  width: 730px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1270px) {
+    padding: 0 24px;
+  }
+}

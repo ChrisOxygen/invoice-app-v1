@@ -1,0 +1,101 @@
+.select-input {
+    width: 100%;
+    position: relative;
+
+    &__display {
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid var(--form-input-border-color);
+        background: var(--invoice-item-bg-color);
+        padding: 17px 20px;
+        cursor: pointer;
+
+        &:hover,
+        &--focused {
+            border: 1px solid var(--01, #7C5DFA);
+        }
+
+        & input[type=checkbox] {
+            display: none;
+
+            &:checked~#selected .arrow-icon {
+
+                transform: rotate(-180deg);
+            }
+        }
+
+        & #selected {
+            color: var(--main-text-color);
+            font-family: "League Spartan";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 15px;
+            /* 100% */
+            letter-spacing: -0.25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            position: relative;
+
+            .arrow-icon {
+                color: var(--01, #7C5DFA);
+                display: grid;
+                place-content: center;
+                font-size: 19px;
+                transition: all 0.3s ease-in-out;
+
+            }
+        }
+
+    }
+
+    &__dropdown {
+        border-radius: 8px;
+        background: #FFF;
+        box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
+
+        width: 100%;
+
+        position: absolute;
+        top: 113%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 8px;
+        background: var(--dropdown-bg-color);
+        box-shadow: var(--dropdown-box-shadow);
+
+        z-index: 2;
+
+        .select-options-list {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            width: 100%;
+
+            &__item {
+                color: var(--main-text-color);
+                font-family: "League Spartan";
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 15px;
+                /* 100% */
+                letter-spacing: -0.25px;
+                padding: 16px 24px;
+                width: 100%;
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--02, #9277FF);
+                }
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid var(--checkbox-bg-color);
+                }
+            }
+        }
+    }
+}

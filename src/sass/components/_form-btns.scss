@@ -1,0 +1,39 @@
+.btn {
+    padding: 17px 23px;
+    font-family: "League Spartan";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 15px;
+    /* 100% */
+    letter-spacing: -0.25px;
+
+    border-radius: 24px;
+
+    &--cancel {
+        background: var(--edit-btn-bg-color);
+        color: var(--edit-btn-color);
+
+        &:hover {
+            background: var(--edit-btn-bg-hover-color);
+        }
+    }
+
+    &--save-draft {
+        color: var(--secondary-text-color-1);
+        background: #373B53;
+
+        &:hover {
+            background: var(--save-draft-bg-hover-color);
+        }
+    }
+
+    &--save-send {
+        background: var(--01, #7C5DFA);
+        color: #FFF;
+
+        &:hover {
+            background: var(--02, #9277FF);
+        }
+    }
+}

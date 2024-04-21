@@ -1,0 +1,157 @@
+.list-status-filter {
+    position: relative;
+}
+
+.filter-display-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+
+    &__label {
+        color: var(--main-text-color);
+        font-family: "League Spartan";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 15px;
+        /* 100% */
+        letter-spacing: -0.25px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        position: relative;
+
+
+        cursor: pointer;
+
+        @media only screen and (max-width: 670px) {
+            gap: 12px;
+
+
+
+
+        }
+
+        .label-text {
+            &--lg-screen {
+                @media only screen and (max-width: 670px) {
+                    display: none;
+
+
+
+                }
+            }
+
+        }
+
+
+
+        &::after {
+            content: url("./assets/icon-arrow-down.svg");
+            display: grid;
+            place-content: center;
+
+
+            width: 16px;
+            height: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    & input[type=checkbox] {
+        display: none;
+
+        &:checked~.filter-display-btn__label:after {
+
+            transform: rotate(-180deg);
+        }
+    }
+
+}
+
+.dropdowm-menu {
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    background: var(--dropdown-bg-color);
+    box-shadow: var(--dropdown-box-shadow);
+
+    padding: 24px;
+    width: 192px;
+
+    z-index: 2;
+}
+
+.filter-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+
+    &__item {
+        display: inline-flex;
+        height: 17px;
+        justify-content: center;
+        gap: 13px;
+        flex-shrink: 0;
+
+        input[type=checkbox] {
+            display: none;
+
+            &:checked~label:before {
+
+                content: url("./assets/icon-check.svg");
+                background: var(--01, #7C5DFA);
+
+            }
+        }
+
+        label {
+            color: var(--main-text-color);
+            font-family: "League Spartan";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 15px;
+            /* 100% */
+            letter-spacing: -0.25px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 13px;
+            position: relative;
+            text-transform: capitalize;
+
+
+            cursor: pointer;
+
+            &:hover {
+                &::before {
+                    border: 1px solid var(--01, #7C5DFA);
+                }
+            }
+
+            &::before {
+                content: url("");
+                display: grid;
+                place-content: center;
+
+                padding-top: 2px;
+
+
+                width: 16px;
+                height: 16px;
+                border-radius: 2px;
+                background: var(--checkbox-bg-color);
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+}
