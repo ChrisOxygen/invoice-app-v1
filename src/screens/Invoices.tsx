@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import InvoiceListItem from "../features/InvoiceIistItem";
 import ListDescriptionTxt from "../features/listDescritionTxt";
 import { useInvoicesSelector } from "../hooks";
@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import EmptyListDisplay from "../components/EmptyLIstDisplay";
 
 function Invoices() {
+  const divRef = useRef<null | HTMLDivElement>(null);
   const { invoices, filteredInvoices } = useInvoicesSelector(
     (state) => state.invoicesData
   );
@@ -23,10 +24,29 @@ function Invoices() {
     }
   }, [filteredInvoices, invoices]);
 
+  useEffect(() => {
+    function checkScrollbar() {
+      const div = divRef.current;
+      if (!div) return;
+      if (div.scrollHeight > div.clientHeight) {
+        div.classList.add("scroll-active");
+      } else {
+        div.classList.remove("scroll-active");
+      }
+    }
+
+    checkScrollbar();
+    window.addEventListener("resize", checkScrollbar);
+
+    return () => {
+      window.removeEventListener("resize", checkScrollbar);
+    };
+  }, []);
+
   if (invoiceList.length === 0) return <EmptyListDisplay />;
 
   return (
-    <div className="invoice-container box-container">
+    <div className="invoice-container box-container" ref={divRef}>
       <div className="header-section">
         <div className="title-container">
           <h3 className="title">Invoices</h3>
