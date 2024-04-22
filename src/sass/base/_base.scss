@@ -122,12 +122,11 @@ h6 {
 }
 
 .wrapper {
-  height: 100%;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   background: var(--main-bg-color);
 
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
 
 
