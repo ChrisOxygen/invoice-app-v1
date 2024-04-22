@@ -750,7 +750,7 @@ function SaveAsDraftBtn({
     <button className="btn btn--save-draft" onClick={handleClick}>{`${
       invoiceState === "edit" && inVoiceStatus === "pending"
         ? "Save"
-        : "Save As Draft"
+        : "Save as Draft"
     }`}</button>
   );
 }
@@ -783,7 +783,7 @@ function SaveAndSendBtn({
   console.log(isFormDirty, invoiceState);
   return (
     <button className="btn btn--save-send" onClick={handleClick}>
-      {`${isFormDirty || invoiceState === "create" ? "Save And Send" : "Send"}`}
+      {`${isFormDirty || invoiceState === "create" ? "Save & Send" : "Send"}`}
     </button>
   );
 }
