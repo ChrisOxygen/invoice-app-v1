@@ -9,7 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import EmptyListDisplay from "../components/EmptyLIstDisplay";
 
 function Invoices() {
-  const divRef = useRef<null | HTMLDivElement>(null);
+  const containerDivRef = useRef<null | HTMLDivElement>(null);
+  const headerDivRef = useRef<null | HTMLDivElement>(null);
   const { invoices, filteredInvoices } = useInvoicesSelector(
     (state) => state.invoicesData
   );
@@ -26,12 +27,15 @@ function Invoices() {
 
   useEffect(() => {
     function checkScrollbar() {
-      const div = divRef.current;
-      if (!div) return;
-      if (div.scrollHeight > div.clientHeight) {
-        div.classList.add("scroll-active");
+      const containerDiv = containerDivRef.current;
+      const headerDiv = headerDivRef.current;
+      if (!containerDiv || !headerDiv) return;
+      if (containerDiv.scrollHeight > containerDiv.clientHeight) {
+        containerDiv.classList.add("scroll-active");
+        headerDiv.classList.add("pad-for-scroll");
       } else {
-        div.classList.remove("scroll-active");
+        containerDiv.classList.remove("scroll-active");
+        headerDiv.classList.remove("pad-for-scroll");
       }
     }
 
@@ -46,8 +50,8 @@ function Invoices() {
   if (invoiceList.length === 0) return <EmptyListDisplay />;
 
   return (
-    <div className="invoice-container box-container" ref={divRef}>
-      <div className="header-section">
+    <div className="invoice-container box-container">
+      <div className="header-section" ref={headerDivRef}>
         <div className="title-container">
           <h3 className="title">Invoices</h3>
           <ListDescriptionTxt invoiceList={invoiceList} />
@@ -57,19 +61,21 @@ function Invoices() {
         <AddNewInvoiceBtn />
       </div>
 
-      <motion.ul
-        className="invoice-list"
-        layout
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ ease: "linear", duration: 0.2 }}
-      >
-        <AnimatePresence mode="popLayout">
-          {invoiceList.map((invoice) => (
-            <InvoiceListItem key={invoice.id} invoice={invoice} />
-          ))}
-        </AnimatePresence>
-      </motion.ul>
+      <div className="scroll-bar-container" ref={containerDivRef}>
+        <motion.ul
+          className="invoice-list"
+          layout
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ ease: "linear", duration: 0.2 }}
+        >
+          <AnimatePresence mode="popLayout">
+            {invoiceList.map((invoice) => (
+              <InvoiceListItem key={invoice.id} invoice={invoice} />
+            ))}
+          </AnimatePresence>
+        </motion.ul>
+      </div>
     </div>
   );
 }

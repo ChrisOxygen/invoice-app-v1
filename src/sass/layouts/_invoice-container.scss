@@ -8,23 +8,7 @@
     padding-bottom: 60px;
     // padding-right: 20px;// padding-left: 40px;
 
-    overflow-y: auto;
-
-    /* custom scrollbar */
-    &::-webkit-scrollbar {
-        width: 20px;
-    }
-
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: #d6dee1;
-        border-radius: 20px;
-        border: 6px solid transparent;
-        background-clip: content-box;
-    }
+    overflow: hidden;
 
 }
 
@@ -89,6 +73,33 @@
             }
         }
     }
+}
+
+.scroll-bar-container {
+    overflow-y: auto;
+
+    /* custom scrollbar */
+    &::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #d6dee1;
+        border-radius: 20px;
+        border: 6px solid transparent;
+        background-clip: content-box;
+    }
+
+    @media only screen and (max-width: 800px) {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
 }
 
 .invoice-list {
