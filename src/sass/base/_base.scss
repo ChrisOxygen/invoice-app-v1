@@ -164,22 +164,23 @@ h6 {
   margin: 0 auto;
 
   padding: 0 24px;
+
+  @media only screen and (max-width: 570px) {
+    padding: 0 10px;
+
+  }
 }
 
 .scroll-active {
 
-  padding-left: 28px !important;
+  padding-left: 18px !important;
   padding-right: 8px !important;
 
-  @media only screen and (max-width: 800px) {
-    padding: 0 !important;
-  }
+
 }
 
 .pad-for-scroll {
-  margin: 0 28px !important;
+  margin: 0 18px !important;
 
-  @media only screen and (max-width: 800px) {
-    margin: 0 !important;
-  }
+
 }
