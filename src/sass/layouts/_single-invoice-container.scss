@@ -12,12 +12,20 @@
     position: relative;
 }
 
+.full-w-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 23.658px;
+
+}
+
 .back-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 23.658px;
-    align-self: flex-start;
 
     margin-bottom: 7px;
 
@@ -35,8 +43,41 @@
         font-size: 15px;
         font-style: normal;
         font-weight: 700;
+
+        letter-spacing: -0.25px;
+        margin-bottom: -3px;
+    }
+}
+
+.invoice-download-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 23.658px;
+    border: 1px solid var(--main-text-color);
+    padding: 5px 15px;
+
+    margin-bottom: 7px;
+
+    &__icon {
+        display: grid;
+        place-items: center;
+        color: var(--01, #7C5DFA);
+        font-size: 14px;
+
+    }
+
+    &__text {
+        color: var(--main-text-color);
+        font-family: "League Spartan";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 0;
         /* 100% */
         letter-spacing: -0.25px;
+        margin-bottom: -3px;
     }
 }
 
