@@ -53,13 +53,18 @@
 
     }
 
+    .scroll-bar-container {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        margin-right: 5px;
+    }
+
 
 
 }
 
 .form-content {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+
     padding: 56px;
     display: flex;
     flex-direction: column;
@@ -73,7 +78,7 @@
     }
 
     @media only screen and (max-width: 570px) {
-        padding: 24px;
+        padding: 15px;
         padding-top: 155px;
 
     }
@@ -294,7 +299,8 @@
     padding: 32px 56px;
 
     @media only screen and (max-width: 670px) {
-        padding: 24px;
+        padding: 15px;
+        border-radius: 0;
 
     }
 
@@ -313,5 +319,10 @@
 
         margin-left: auto;
 
+    }
+
+    &.scroll {
+        border-top: 1px solid var(--form-input-border-color);
+        box-shadow: rgba(72, 84, 159, 0.25) 0px -25px 50px -12px;
     }
 }

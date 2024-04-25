@@ -7,15 +7,11 @@ import { formatCurrency, formatDate } from "../utils/helpers";
 import EditInvoiceBtn from "../ui/EditInvoiceBtn";
 import { markAsPaid } from "@/features/invoicesSlice";
 import DeleteBtn from "@/components/DeleteBtn";
-import { useEffect, useRef } from "react";
 
 function SingleInvoice() {
   const { id: idFromParams } = useParams();
   const { invoices } = useInvoicesSelector((state) => state.invoicesData);
   const navigate = useNavigate();
-
-  const containerDivRef = useRef<null | HTMLDivElement>(null);
-  const headerDivRef = useRef<null | HTMLDivElement>(null);
 
   const dispatch = useInvoicesDispatch();
 
@@ -26,28 +22,6 @@ function SingleInvoice() {
   const currentInvoice = invoices.find(
     (invoice) => invoice.id === idFromParams
   );
-
-  useEffect(() => {
-    function checkScrollbar() {
-      const containerDiv = containerDivRef.current;
-      const headerDiv = headerDivRef.current;
-      if (!containerDiv || !headerDiv) return;
-      if (containerDiv.scrollHeight > containerDiv.clientHeight) {
-        containerDiv.classList.add("scroll-active");
-        headerDiv.classList.add("pad-for-scroll");
-      } else {
-        containerDiv.classList.remove("scroll-active");
-        headerDiv.classList.remove("pad-for-scroll");
-      }
-    }
-
-    checkScrollbar();
-    window.addEventListener("resize", checkScrollbar);
-
-    return () => {
-      window.removeEventListener("resize", checkScrollbar);
-    };
-  }, []);
 
   if (!currentInvoice) return null;
 
@@ -61,7 +35,7 @@ function SingleInvoice() {
         </span>
         <div className="back-btn__text">Go back</div>
       </button>
-      <div className="header-section" ref={headerDivRef}>
+      <div className="header-section header-for-scrollbar">
         <div className="status-box">
           <span className="status-box__text">Status</span>
           <InvoiceStatus
@@ -101,7 +75,7 @@ function SingleInvoice() {
           </div>
         </div>
       </div>
-      <div className="scroll-bar-container" ref={containerDivRef}>
+      <div className="scroll-bar-container">
         <div className="body-section">
           <div className="contact-details">
             <div className="contact-details__top-section">
