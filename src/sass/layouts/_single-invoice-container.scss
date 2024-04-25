@@ -128,6 +128,14 @@
         &:hover {
             background: var(--10, #FF9797);
         }
+
+        @media only screen and (max-width: 670px) {
+            padding: 17px 16px;
+
+
+
+
+        }
     }
 
     &__mark-as-btn {
@@ -136,6 +144,14 @@
 
         &:hover {
             background: var(--02, #9277FF);
+        }
+
+        @media only screen and (max-width: 670px) {
+            padding: 17px 16px;
+
+
+
+
         }
     }
 }
