@@ -35,14 +35,13 @@ function SingleInvoice() {
   const { senderAddress, clientAddress, items } = currentInvoice;
 
   const handleGeneratePDF = async () => {
+    console.log("inputData");
     if (!invoicePdfRef.current) return;
     const inputData = invoicePdfRef.current;
 
-    console.log(inputData);
-
     try {
       const canvas = await html2canvas(inputData, {
-        windowWidth: 674,
+        windowWidth: 804,
         windowHeight: inputData.scrollHeight,
       });
       const imgData = canvas.toDataURL("image/png");
@@ -128,7 +127,7 @@ function SingleInvoice() {
         </div>
       </div>
       <div className="scroll-bar-container">
-        <div className="body-section">
+        <div className="body-section" ref={invoicePdfRef}>
           <div className="contact-details">
             <div className="contact-details__top-section">
               <div className="invoice-id-project-desc">
