@@ -7,11 +7,18 @@ import { formatCurrency, formatDate } from "../utils/helpers";
 import EditInvoiceBtn from "../ui/EditInvoiceBtn";
 import { markAsPaid } from "@/features/invoicesSlice";
 import DeleteBtn from "@/components/DeleteBtn";
+import { LuDownload } from "react-icons/lu";
+import { useRef } from "react";
+
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function SingleInvoice() {
   const { id: idFromParams } = useParams();
   const { invoices } = useInvoicesSelector((state) => state.invoicesData);
   const navigate = useNavigate();
+
+  const invoicePdfRef = useRef<null | HTMLDivElement>(null);
 
   const dispatch = useInvoicesDispatch();
 
@@ -26,6 +33,35 @@ function SingleInvoice() {
   if (!currentInvoice) return null;
 
   const { senderAddress, clientAddress, items } = currentInvoice;
+
+  const handleGeneratePDF = async () => {
+    if (!invoicePdfRef.current) return;
+    const inputData = invoicePdfRef.current;
+
+    console.log(inputData);
+
+    try {
+      const canvas = await html2canvas(inputData, {
+        windowWidth: 674,
+        windowHeight: inputData.scrollHeight,
+      });
+      const imgData = canvas.toDataURL("image/png");
+
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "px",
+        format: "a4",
+      });
+
+      const width = pdf.internal.pageSize.getWidth();
+      const height = (canvas.height * width) / canvas.width;
+
+      pdf.addImage(imgData, "PNG", 0, 0, width, height);
+      pdf.save("invoice.pdf");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="single-invoice-container box-container">
@@ -56,6 +92,14 @@ function SingleInvoice() {
               Mark as paid
             </button>
           )}
+          <button
+            className="invoice-download-btn"
+            onClick={() => handleGeneratePDF()}
+          >
+            <span className="invoice-download-btn__icon">
+              <LuDownload />
+            </span>
+          </button>
         </div>
       </div>
       <div className="bottom-fixed-tab ">
@@ -72,6 +116,14 @@ function SingleInvoice() {
                 Mark as paid
               </button>
             )}
+            <button
+              className="invoice-download-btn"
+              onClick={() => handleGeneratePDF()}
+            >
+              <span className="invoice-download-btn__icon">
+                <LuDownload />
+              </span>
+            </button>
           </div>
         </div>
       </div>

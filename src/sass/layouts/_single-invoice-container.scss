@@ -12,12 +12,22 @@
     position: relative;
 }
 
+.full-w-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 23.658px;
+
+}
+
 .back-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 23.658px;
-    align-self: flex-start;
+
+    margin-right: auto;
 
     margin-bottom: 7px;
 
@@ -35,8 +45,42 @@
         font-size: 15px;
         font-style: normal;
         font-weight: 700;
+
+        letter-spacing: -0.25px;
+        margin-bottom: -3px;
+    }
+}
+
+.invoice-download-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 23.658px;
+    padding: 10px 10px;
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 7px;
+
+    &__icon {
+        display: grid;
+        place-items: center;
+        color: var(--01, #7C5DFA);
+        font-size: 26px;
+
+    }
+
+    &__text {
+        color: var(--main-text-color);
+        font-family: "League Spartan";
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 0;
         /* 100% */
         letter-spacing: -0.25px;
+        margin-bottom: -3px;
     }
 }
 
@@ -119,6 +163,29 @@
         &:hover {
             background: var(--edit-btn-bg-hover-color);
         }
+
+        @media only screen and (max-width: 670px) {
+            padding: 10px 10px;
+            width: 50px;
+            height: 50px;
+        }
+
+        & .icon {
+            display: none;
+
+            @media only screen and (max-width: 670px) {
+                display: inline-block;
+                font-size: 26px;
+            }
+        }
+
+        & .text {
+
+
+            @media only screen and (max-width: 670px) {
+                display: none;
+            }
+        }
     }
 
     &__delete-btn {
@@ -130,11 +197,26 @@
         }
 
         @media only screen and (max-width: 670px) {
-            padding: 17px 16px;
+            padding: 10px 10px;
+            width: 50px;
+            height: 50px;
+        }
+
+        & .icon {
+            display: none;
+
+            @media only screen and (max-width: 670px) {
+                display: inline-block;
+                font-size: 26px;
+            }
+        }
+
+        & .text {
 
 
-
-
+            @media only screen and (max-width: 670px) {
+                display: none;
+            }
         }
     }
 
@@ -669,7 +751,7 @@
         }
 
         @media only screen and (max-width: 570px) {
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
         .action-box {
@@ -688,7 +770,8 @@
 
                 @media only screen and (max-width: 570px) {
 
-                    gap: 20px;
+                    gap: 15px;
+                    // padding: 20px;
                 }
             }
         }

@@ -1,3 +1,4 @@
+import { HiOutlinePencilSquare } from "react-icons/hi2";
 import { openFormPopUp } from "../features/invoicesSlice";
 import { useInvoicesDispatch } from "../hooks";
 
@@ -12,7 +13,10 @@ function EditInvoiceBtn() {
       className="action-box-btn action-box-btn__edit-btn"
       onClick={handleEditInvoice}
     >
-      Edit
+      <span className="icon">
+        <HiOutlinePencilSquare />
+      </span>
+      <span className="text">Edit</span>
     </button>
   );
 }
