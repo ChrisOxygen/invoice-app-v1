@@ -38,8 +38,13 @@ function SingleInvoice() {
     if (!invoicePdfRef.current) return;
     const inputData = invoicePdfRef.current;
 
+    console.log(inputData);
+
     try {
-      const canvas = await html2canvas(inputData);
+      const canvas = await html2canvas(inputData, {
+        windowWidth: 674,
+        windowHeight: inputData.scrollHeight,
+      });
       const imgData = canvas.toDataURL("image/png");
 
       const pdf = new jsPDF({
@@ -67,15 +72,6 @@ function SingleInvoice() {
           </span>
           <div className="back-btn__text">Go back</div>
         </button>
-        <button
-          className="invoice-download-btn"
-          onClick={() => handleGeneratePDF()}
-        >
-          <span className="invoice-download-btn__icon">
-            <LuDownload />
-          </span>
-          <span className="invoice-download-btn__text">Download Invoice</span>
-        </button>
       </div>
 
       <div className="header-section">
@@ -99,6 +95,14 @@ function SingleInvoice() {
               Mark as paid
             </button>
           )}
+          <button
+            className="invoice-download-btn"
+            onClick={() => handleGeneratePDF()}
+          >
+            <span className="invoice-download-btn__icon">
+              <LuDownload />
+            </span>
+          </button>
         </div>
       </div>
       <div className="bottom-fixed-tab ">
@@ -115,6 +119,14 @@ function SingleInvoice() {
                 Mark as paid
               </button>
             )}
+            <button
+              className="invoice-download-btn"
+              onClick={() => handleGeneratePDF()}
+            >
+              <span className="invoice-download-btn__icon">
+                <LuDownload />
+              </span>
+            </button>
           </div>
         </div>
       </div>
